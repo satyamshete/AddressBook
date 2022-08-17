@@ -33,6 +33,7 @@
             ////UC3 to edit contact
             Console.WriteLine();
             Console.WriteLine("Press 1 for edit");
+            Console.WriteLine("Press 2 for delete");
             int input = int.Parse(Console.ReadLine());
 
             switch (input)
@@ -42,6 +43,10 @@
                     Console.WriteLine();
                     addressBook.edit();
                     Console.WriteLine();
+                    break;
+                case 2:
+                    ///// to delete
+                    addressBook.Delete();
                     break;
                 default:
                     Console.WriteLine("Wrong selection");
