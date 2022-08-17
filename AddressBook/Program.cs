@@ -29,6 +29,24 @@
             string Email = Console.ReadLine();
             AddressBook addressBook = new AddressBook(FName, LName, Address, City, State, ZipCode, PhoneNumber, Email);
             addressBook.display();
+
+            ////UC3 to edit contact
+            Console.WriteLine();
+            Console.WriteLine("Press 1 for edit");
+            int input = int.Parse(Console.ReadLine());
+
+            switch (input)
+            {
+                case 1:
+                    ////////to edit
+                    Console.WriteLine();
+                    addressBook.edit();
+                    Console.WriteLine();
+                    break;
+                default:
+                    Console.WriteLine("Wrong selection");
+                    break;
+            }
         }
     }
 }
