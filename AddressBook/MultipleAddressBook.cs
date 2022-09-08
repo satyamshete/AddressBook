@@ -210,5 +210,27 @@ namespace AddressBook
             }
 
         }
+        public void DisplayByCityOrStateName()
+        {
+            Console.WriteLine("Enter City or State Name");
+            string City = Console.ReadLine();
+            if (PhoneBook.Any(x => (x.Value.City == City) || (x.Value.State == City)))
+            {
+                foreach (KeyValuePair<string, MultipleAddressBook> Dict in PhoneBook)
+                {
+
+                    if (Dict.Value.State == City || Dict.Value.City == City)
+                    {
+                        Console.WriteLine("{0} Leaves in {1}", Dict.Key, City);
+                    }
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("No one Leaves in {0}", City);
+            }
+
+        }
     }
 }

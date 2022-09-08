@@ -64,7 +64,8 @@
                 Console.WriteLine("press 3 to delete the contact from list");
                 Console.WriteLine("press 4 to update the contact from list");
                 Console.WriteLine("press 5 to check if person is present by city or state name");
-                Console.WriteLine("press 6 to Stop");
+                Console.WriteLine("press 6 to view person by city or state name");
+                Console.WriteLine("press 7 to Stop");
                 int input = Convert.ToInt32(Console.ReadLine());
                 MultipleAddressBook multipleAddressBook = new MultipleAddressBook();
                 switch (input)
@@ -90,9 +91,15 @@
                         break;
                     case 6:
                         {
+                            multipleAddressBook.DisplayByCityOrStateName();
+                        }
+                        break;
+                    case 7:
+                        {
                             ToStop = false;
                         }
                         break;
+
                     default:
                         Console.WriteLine("Make Proper Selection");
                         break;
