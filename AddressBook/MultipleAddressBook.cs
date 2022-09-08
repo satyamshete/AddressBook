@@ -46,16 +46,21 @@ namespace AddressBook
             Console.WriteLine("Enter First Name");
             string FName = Console.ReadLine();
             int count = 0;
-            foreach (var phone in PhoneBook)
+            if (PhoneBook.Any(x => x.Key == FName))
             {
-                if (phone.Key == FName)
-                {
-                    Console.WriteLine("Contact is already present");
-                    count++;
-
-
-                }
+                Console.WriteLine("Contact is already present");
+                count++;
             }
+            //foreach (var phone in PhoneBook)
+            //{
+            //    if (phone.Key == FName)
+            //    {
+            //        Console.WriteLine("Contact is already present");
+            //        count++;
+
+
+            //    }
+            //}
             if (count == 0)
             {
                 Console.WriteLine("Enter Last Name");

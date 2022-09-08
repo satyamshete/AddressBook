@@ -54,7 +54,7 @@
 
 
             /////For Multiple Contacts
-            Dictionary<string, MultipleAddressBook> PhoneBook = new Dictionary<string, MultipleAddressBook>();
+          //  Dictionary<string, MultipleAddressBook> PhoneBook = new Dictionary<string, MultipleAddressBook>();
             bool ToStop = true;
             while (ToStop)
             {
