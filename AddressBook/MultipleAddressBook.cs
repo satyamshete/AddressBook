@@ -221,14 +221,38 @@ namespace AddressBook
 
                     if (Dict.Value.State == City || Dict.Value.City == City)
                     {
-                        Console.WriteLine("{0} Leaves in {1}", Dict.Key, City);
+                        Console.WriteLine("{0} Lives in {1}", Dict.Key, City);
                     }
 
                 }
             }
             else
             {
-                Console.WriteLine("No one Leaves in {0}", City);
+                Console.WriteLine("No one Lives in {0}", City);
+            }
+
+        }
+        public void DisplayCountByCityOrStateName()
+        {
+            Console.WriteLine("Enter City or State Name");
+            string City = Console.ReadLine();
+            int count = 0;
+            if (PhoneBook.Any(x => (x.Value.City == City) || (x.Value.State == City)))
+            {
+                foreach (KeyValuePair<string, MultipleAddressBook> Dict in PhoneBook)
+                {
+
+                    if (Dict.Value.State == City || Dict.Value.City == City)
+                    {
+                        count++;
+                    }
+
+                }
+                Console.WriteLine("{0} Lives in {1}", count, City);
+            }
+            else
+            {
+                Console.WriteLine("No one Lives in {0}", City);
             }
 
         }
