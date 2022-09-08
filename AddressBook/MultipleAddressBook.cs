@@ -194,5 +194,21 @@ namespace AddressBook
 
             }
         }
+        public void CheckPresentByCityOrStateName()
+        {
+            Console.WriteLine("Enter City or State Name");
+            string City = Console.ReadLine();
+            if (PhoneBook.Any(x => x.Value.City == City || x.Value.State == City))
+            {
+                Console.WriteLine("Contact is present");
+
+            }
+            else
+            {
+                Console.WriteLine("Contact isNot present");
+
+            }
+
+        }
     }
 }
