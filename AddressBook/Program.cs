@@ -56,6 +56,8 @@
             /////For Multiple Contacts
           //  Dictionary<string, MultipleAddressBook> PhoneBook = new Dictionary<string, MultipleAddressBook>();
             bool ToStop = true;
+            MultipleAddressBook multipleAddressBook = new MultipleAddressBook();
+            multipleAddressBook.JSONDesrialization();
             while (ToStop)
             {
                 Console.WriteLine();
@@ -68,22 +70,25 @@
                 Console.WriteLine("press 7 to count person by city or state name");
                 Console.WriteLine("press 8 to Stop");
                 int input = Convert.ToInt32(Console.ReadLine());
-                MultipleAddressBook multipleAddressBook = new MultipleAddressBook();
                 switch (input)
                 {
                     case 1:
                         multipleAddressBook.AddNewContact();
+                        multipleAddressBook.AddContactJSONsrialization();
                         break;
 
                     case 2:
+                        multipleAddressBook.JSONDesrialization();
                         multipleAddressBook.DisplayContact();
                         break;
                     case 3:
                         multipleAddressBook.DeleteContact();
+                        multipleAddressBook.AddContactJSONsrialization();
                         break;
 
                     case 4:
                         multipleAddressBook.EditContact();
+                        multipleAddressBook.AddContactJSONsrialization();
                         break;
                     case 5:
                         {

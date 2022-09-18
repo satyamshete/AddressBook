@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Formats.Asn1;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+
 
 namespace AddressBook
 {
-    internal class MultipleAddressBook
+    public class MultipleAddressBook
     {
-        internal string LName;
-        internal string Address;
-        internal string City;
-        internal string State;
-        internal int ZipCode;
-        internal long PhoneNumber;
-        internal string Email;
+        public string LName;
+        public string Address;
+        public string City;
+        public string State;
+        public int ZipCode;
+        public long PhoneNumber;
+        public string Email;
         static Dictionary<string, MultipleAddressBook> PhoneBook = new Dictionary<string, MultipleAddressBook>();
         public MultipleAddressBook()
         {
@@ -256,5 +259,43 @@ namespace AddressBook
             }
 
         }
+        public void JSONDesrialization()
+        {
+            string path = @"C:\Users\satya\OneDrive\Desktop\BridgeLabs\From ASUS\Bridgelabs1\GIT2\AddressBook\AddressBook\ContactBook.json";
+            try
+            {
+                JsonSerializer desrializer = new JsonSerializer();
+                using (StreamReader SR = new StreamReader(path))
+                {
+                    JsonReader jsonReader = new JsonTextReader(SR);
+                    PhoneBook = desrializer.Deserialize<Dictionary<string, MultipleAddressBook>>(jsonReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void AddContactJSONsrialization()
+        {
+            string path = @"C:\Users\satya\OneDrive\Desktop\BridgeLabs\From ASUS\Bridgelabs1\GIT2\AddressBook\AddressBook\ContactBook.json";
+            try
+            {
+                using (FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    using (StreamWriter SW = new StreamWriter(fileStream))
+                    {
+                        JsonSerializer srializer = new JsonSerializer();
+                        srializer.Serialize(SW, PhoneBook);
+                    }
+                }
+                Console.WriteLine("contact created.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
     }
 }
