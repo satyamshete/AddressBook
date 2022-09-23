@@ -296,6 +296,45 @@ namespace AddressBook
                 Console.WriteLine(ex.Message);
             }
         }
+        public void CSVserialisation()
+        {
+            string path = @"C:\Users\satya\OneDrive\Desktop\BridgeLabs\From ASUS\Bridgelabs1\GIT2\AddressBook\AddressBook\Contact.csv";
+            try
+            {
+                String csv = String.Join(
+                            Environment.NewLine,
+                            PhoneBook.Select(d => $"{d.Key},{d.Value.LName},{d.Value.Address},{d.Value.City},{d.Value.State},{d.Value.ZipCode},{d.Value.PhoneNumber},{d.Value.Email}")
+                                        );
+                File.WriteAllText(path, csv);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void CSVDeserialisation()
+        {
+            string path = @"C:\Users\satya\OneDrive\Desktop\BridgeLabs\From ASUS\Bridgelabs1\GIT2\AddressBook\AddressBook\Contact.csv";
+            try
+            {
+                using (var reader = new StreamReader(path))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+                        if (line == null) continue;
+                        var values = line.Split(',');
+                        MultipleAddressBook MultipleAddressBook1 = new MultipleAddressBook(values[1], values[2], values[3], values[4], int.Parse(values[5]), long.Parse(values[6]), values[7]);
+                        PhoneBook.Add(values[0], MultipleAddressBook1);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
     }
 }

@@ -57,7 +57,8 @@
           //  Dictionary<string, MultipleAddressBook> PhoneBook = new Dictionary<string, MultipleAddressBook>();
             bool ToStop = true;
             MultipleAddressBook multipleAddressBook = new MultipleAddressBook();
-            multipleAddressBook.JSONDesrialization();
+            // multipleAddressBook.JSONDesrialization();
+            multipleAddressBook.CSVDeserialisation();
             while (ToStop)
             {
                 Console.WriteLine();
@@ -74,21 +75,28 @@
                 {
                     case 1:
                         multipleAddressBook.AddNewContact();
-                        multipleAddressBook.AddContactJSONsrialization();
+                        // multipleAddressBook.AddContactJSONsrialization();
+                        multipleAddressBook.CSVserialisation();
                         break;
 
                     case 2:
-                        multipleAddressBook.JSONDesrialization();
+                        //multipleAddressBook.JSONDesrialization();
+                        //multipleAddressBook.DisplayContact();
+                        multipleAddressBook.CSVDeserialisation();
                         multipleAddressBook.DisplayContact();
                         break;
                     case 3:
+                        //multipleAddressBook.DeleteContact();
+                        //multipleAddressBook.AddContactJSONsrialization();
                         multipleAddressBook.DeleteContact();
-                        multipleAddressBook.AddContactJSONsrialization();
+                        multipleAddressBook.CSVserialisation();
                         break;
 
                     case 4:
+                        //multipleAddressBook.EditContact();
+                        //multipleAddressBook.AddContactJSONsrialization();
                         multipleAddressBook.EditContact();
-                        multipleAddressBook.AddContactJSONsrialization();
+                        multipleAddressBook.CSVserialisation();
                         break;
                     case 5:
                         {
